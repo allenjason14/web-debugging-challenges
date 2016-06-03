@@ -1,0 +1,7 @@
+Index.html:
+I added an equal sign on the html script to finish g-app="miniRouting"
+I closed the opening brackets for the script that referred to angular-ui.
+
+app.js:
+Each state had an opening and a closing parethnesis rather than .state("name", . . . In other words, I closed the parenthesis in the correct location at the end of each state.
+The last state was outside of the angular.module, so I moved the closing parenthesis so it would surround each state properly. 

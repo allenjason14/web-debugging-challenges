@@ -6,9 +6,11 @@ module.exports = {
     var newSighting = new Sighting(req.body);
     newSighting.save(function (err, result) {
       if (!err) {
-        res.send(result);
+        res.status(200).send(result);
       }
+      else {
       res.status(500).send(err);
+    }
     });
   },
 
@@ -18,27 +20,33 @@ module.exports = {
       .populate('user', 'username')
       .exec(function (err, result) {
         if (!err) {
-          res.send(result);
+          res.status(200).send(result);
         }
+          else {
         res.status(500).send(err);
+      }
       });
   },
 
   update: function (req, res) {
     Sighting.findByIdAndUpdate(req.params.id, req.body, function (err, result) {
       if (!err) {
-        res.send(result);
+        res.status(200).send(result);
       }
+      else {
       res.status(500).send(err);
+    }
     });
   },
 
   delete: function (req, res) {
     Sighting.findByIdAndRemove(req.params.id, function (err, result) {
       if (!err) {
-        res.send(result);
+        res.status(200).send(result);
       }
+      else {
       res.status(500).send(err);
+    }
     });
   }
 };
